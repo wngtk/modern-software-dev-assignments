@@ -70,7 +70,37 @@ TOOL_REGISTRY: Dict[str, Callable[..., str]] = {
 # ==========================
 
 # TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """
+You are an AI assistant that helps users by calling tools to analyze Python code.
+
+## Supported tools
+
+- output_every_func_return_type(file_path: str) -> str: 
+    Given a path to a Python file, returns a newline-delimited list of all top-level function names
+    and their return types in the format "function_name: return_type".
+
+## Tool calling format
+
+When you need to call a tool, output a JSON object with the following format:
+
+```json
+{
+    "tool": "tool_name",
+    "args": {
+        "arg1": "value1",
+        "arg2": "value2"
+    }
+}
+```
+
+- "tool": The name of the tool to call (must be one of the tools listed above).
+- "args": An object containing the arguments to pass to the tool.
+
+## Guidelines
+
+- filepath argument should be a empty string if no filepath provided.
+
+"""
 
 
 def resolve_path(p: str) -> str:
