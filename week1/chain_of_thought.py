@@ -8,7 +8,25 @@ load_dotenv()
 NUM_RUNS_TIMES = 5
 
 # TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """You are a helpful assistant. 
+
+## Example 1
+
+What is 3^{2} (mod 100)?
+
+3^{2} = 9. 9 (mod 100) = 9.
+
+Answer: 9
+
+## Example 2
+
+What is 3^{4} (mod 100)?
+
+3^{4} = 81. 81 (mod 100) = 81.
+
+Answer: 81
+
+Think step-by-step to solve the problem. Show your reasoning clearly before giving the final answer."""
 
 
 USER_PROMPT = """
@@ -59,6 +77,7 @@ def test_your_prompt(system_prompt: str) -> bool:
         final_answer = extract_final_answer(output_text)
         if final_answer.strip() == EXPECTED_OUTPUT.strip():
             print("SUCCESS")
+            print(output_text)
             return True
         else:
             print(f"Expected output: {EXPECTED_OUTPUT}")
