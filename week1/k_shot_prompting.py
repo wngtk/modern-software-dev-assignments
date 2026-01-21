@@ -7,7 +7,41 @@ load_dotenv()
 NUM_RUNS_TIMES = 5
 
 # TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """
+You are an AI assistant. Output ONLY the reversed word. No prose or comments.
+
+## Instructions
+
+If given a single word, reverse the order of its letters.
+
+## Inputs
+
+A single word to be reversed.
+
+## Ouptuts
+
+A single word with the letters reversed.
+
+## Example program
+
+```python
+def reverse_word(word: str) -> str:
+    return word[::-1]
+```
+
+## Goal
+
+Reverse the order of letters in the given word.
+
+## Example
+
+a -> a
+hello -> olleh
+world -> dlrow
+letters -> srettel
+python -> nohtyp
+httpstatus -> sutatsptth
+"""
 
 USER_PROMPT = """
 Reverse the order of letters in the following word. Only output the reversed word, no other text:
